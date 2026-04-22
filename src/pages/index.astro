@@ -1,11 +1,366 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Maria Rodrigues</title>
+
+    <style>
+      body {
+        margin: 0;
+        font-family: Helvetica, Arial, sans-serif;
+        background: #F7F5F2;
+        color: #111;
+      }
+
+      /* HERO */
+      .hero {
+        padding: 80px 40px 40px;
+        max-width: 1200px;
+      }
+
+      .title {
+        font-size: clamp(3rem, 10vw, 8rem);
+        font-weight: 900;
+        line-height: 0.85;
+        letter-spacing: -2px;
+      }
+
+      .accent {
+        color: #A020F0;
+      }
+
+      .subtitle {
+        margin-top: 30px;
+        font-size: 1.2rem;
+        max-width: 420px;
+        color: #444;
+      }
+
+      /* PROJECTS */
+      .projects {
+        margin-top: 60px;
+        padding: 0 40px 80px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 30px;
+      }
+
+      .card {
+        background: #fff;
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        border: 1px solid rgba(0,0,0,0.03);
+        transition: all 0.3s ease;
+      }
+
+      @media (min-width: 768px) {
+        .card:nth-child(1) { transform: rotate(-2deg); }
+        .card:nth-child(2) { transform: rotate(2deg); }
+        .card:nth-child(3) { transform: rotate(-1deg); }
+      }
+
+      .card:hover {
+        transform: scale(1.03);
+      }
+
+      .tag {
+        font-size: 0.7rem;
+        background: #111;
+        color: white;
+        padding: 5px 12px;
+        border-radius: 20px;
+        display: inline-block;
+      }
+
+      .card p {
+        color: #555;
+        font-size: 0.95rem;
+        line-height: 1.5;
+      }
+
+      /* ABOUT */
+      .about {
+        padding: 100px 40px;
+        background: #010101;
+        color: white;
+      }
+
+      .about-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 60px;
+        max-width: 1100px;
+        margin: auto;
+      }
+
+      .about-text {
+        flex: 1;
+      }
+
+      .about-text h2 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+      }
+
+      .about-text p {
+        line-height: 1.7;
+        color: #ccc;
+      }
+
+      .about-image {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+      }
+
+      .about-image img {
+        width: 260px;
+        height: 320px;
+        object-fit: cover;
+        border-radius: 20px;
+        filter: grayscale(10%);
+      }
+
+      /* TIMELINE */
+      .timeline {
+        padding: 100px 40px 40px; 
+        max-width: 800px;
+        margin: auto;
+      }
+
+      .timeline h2 {
+        margin-bottom: 40px;
+      }
+
+      .timeline-line {
+        position: relative;
+        border-left: 2px solid #A020F0;
+        padding-left: 30px;
+      }
+
+      .timeline-item {
+        position: relative;
+        margin-bottom: 30px;
+      }
+
+      .dot {
+        width: 10px;
+        height: 10px;
+        background: #A020F0;
+        border-radius: 50%;
+        position: absolute;
+        left: -36px;
+        top: 6px;
+      }
+
+      .content span {
+        font-weight: bold;
+        color: #A020F0;
+      }
+
+      .content p {
+        margin: 5px 0 0;
+        color: #333;
+      }
+
+.contact {
+  padding: 40px 40px 100px;
+  text-align: center;
+  background: transparent;
+}
+
+.contact h2 {
+  margin-bottom: 30px;
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.contact-links a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #111;
+  border-bottom: 1px solid transparent;
+  transition: 0.3s;
+}
+
+.contact-links a:hover {
+  color: #A020F0;
+  border-color: #A020F0;
+}
+
+      /* RESPONSIVO */
+      @media (max-width: 768px) {
+        .about-wrapper {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .about-image img {
+          width: 100%;
+          height: auto;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .hero {
+          padding: 60px 20px 20px;
+        }
+
+        .projects {
+          padding: 0 20px 60px;
+        }
+
+        .about {
+          padding: 60px 20px;
+        }
+
+        .timeline {
+          padding: 60px 20px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="title">
+        Maria <br />
+        <span class="accent">Rodrigues</span>
+      </div>
+
+      <p class="subtitle">
+        Dados aplicados a negócio, com foco em performance e tomada de decisão.
+      </p>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="projects">
+
+      <div class="card">
+        <span class="tag">DATA</span>
+        <h3>C6 Bank</h3>
+        <p>
+          Analista de BI. Construção de bases e dashboards para monitoramento de inadimplência
+          e performance da carteira, apoiando decisões de crédito.
+        </p>
+      </div>
+
+      <div class="card">
+        <span class="tag">TECH</span>
+        <h3>Instituto Mauá de Tecnologia</h3>
+        <p>
+          Último ano de Ciência da Computação no IMT.
+          Formação com foco em desenvolvimento, pensamento lógico e resolução de problemas complexos.
+        </p>
+      </div>
+
+      <div class="card">
+        <span class="tag">TCC</span>
+        <h3>Ampara</h3>
+        <p>
+          Sistema de detecção de vulnerabilidade feminina utilizando sensores e machine learning
+          para identificação de padrões de risco.
+        </p>
+      </div>
+
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about">
+      <div class="about-wrapper">
+
+        <div class="about-text">
+          <h2>Sobre mim</h2>
+
+          <p>
+            Atuo com análise de dados aplicada a negócio, com foco em crédito,
+            performance e tomada de decisão.
+            <br /><br />
+            Tenho experiência com SQL, Power BI, BigQuery e Databricks,
+            construindo indicadores e dashboards para apoiar decisões estratégicas.
+            <br /><br />
+            Busco evoluir para posições que conectem dados, produto e estratégia,
+            gerando impacto real em decisões de negócio.
+          </p>
+        </div>
+
+        <div class="about-image">
+          <img src="/foto.jpg" alt="Maria Rodrigues" />
+        </div>
+
+      </div>
+    </section>
+
+    <!-- TIMELINE -->
+    <section class="timeline">
+      <h2>Trajetória</h2>
+
+      <div class="timeline-line">
+
+        <div class="timeline-item">
+          <div class="dot"></div>
+          <div class="content">
+            <span>2026</span>
+            <p>Analista de BI no C6 Bank</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="dot"></div>
+          <div class="content">
+            <span>2025</span>
+            <p>Estágio em Business Intelligence no C6 Bank</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="dot"></div>
+          <div class="content">
+            <span>2024</span>
+            <p>Liderança de Tecnologia na Mauá Jr.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="dot"></div>
+          <div class="content">
+            <span>2023</span>
+            <p>Início da graduação em Ciência da Computação</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+<section class="contact">
+  <h2>Contato</h2>
+
+  <div class="contact-links">
+
+    <a href="https://www.linkedin.com/in/marodrigu3s/" target="_blank">
+      LinkedIn
+    </a>
+
+    <a href="https://github.com/marodrigues412" target="_blank">
+      GitHub
+    </a>
+
+    <a href="mailto:marodriguess412@gmail.com">
+      Email
+    </a>
+
+  </div>
+</section>
+  </body>
+</html>
