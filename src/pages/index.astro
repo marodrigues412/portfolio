@@ -7,252 +7,284 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Maria Rodrigues</title>
 
-    <style>
-      body {
-        margin: 0;
-        font-family: Helvetica, Arial, sans-serif;
-        background: #F7F5F2;
-        color: #111;
-      }
+<style>
+  body {
+    margin: 0;
+    font-family: Helvetica, Arial, sans-serif;
+    background: #F7F5F2;
+    color: #111;
+  }
 
-      /* HERO */
-      .hero {
-        padding: 80px 40px 40px;
-        max-width: 1200px;
-      }
+  /* HERO */
+  .hero {
+    position: relative;
+    padding: 120px 40px 40px; /* mais respiro no topo */
+    max-width: 1200px;
+  }
 
-      .title {
-        font-size: clamp(3rem, 10vw, 8rem);
-        font-weight: 900;
-        line-height: 0.85;
-        letter-spacing: -2px;
-      }
+  .title {
+    font-size: clamp(3rem, 10vw, 8rem);
+    font-weight: 900;
+    line-height: 0.85;
+    letter-spacing: -2px;
+  }
 
-      .accent {
-        color: #A020F0;
-      }
+  .accent {
+    color: #A020F0;
+  }
 
-      .subtitle {
-        margin-top: 30px;
-        font-size: 1.2rem;
-        max-width: 420px;
-        color: #444;
-      }
+  .subtitle {
+    margin-top: 30px;
+    font-size: 1.2rem;
+    max-width: 420px;
+    color: #444;
+  }
 
-      /* PROJECTS */
-      .projects {
-        margin-top: 60px;
-        padding: 0 40px 80px;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        gap: 30px;
-      }
-
-      .card {
-        background: #fff;
-        padding: 30px;
-        border-radius: 20px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-        border: 1px solid rgba(0,0,0,0.03);
-        transition: all 0.3s ease;
-      }
-
-      @media (min-width: 768px) {
-        .card:nth-child(1) { transform: rotate(-2deg); }
-        .card:nth-child(2) { transform: rotate(2deg); }
-        .card:nth-child(3) { transform: rotate(-1deg); }
-      }
-
-      .card:hover {
-        transform: scale(1.03);
-      }
-
-      .tag {
-        font-size: 0.7rem;
-        background: #111;
-        color: white;
-        padding: 5px 12px;
-        border-radius: 20px;
-        display: inline-block;
-      }
-
-      .card p {
-        color: #555;
-        font-size: 0.95rem;
-        line-height: 1.5;
-      }
-
-      /* ABOUT */
-      .about {
-        padding: 100px 40px;
-        background: #010101;
-        color: white;
-      }
-
-      .about-wrapper {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        gap: 60px;
-        max-width: 1100px;
-        margin: auto;
-      }
-
-      .about-text {
-        flex: 1;
-      }
-
-      .about-text h2 {
-        font-size: 2.5rem;
-        margin-bottom: 20px;
-      }
-
-      .about-text p {
-        line-height: 1.7;
-        color: #ccc;
-      }
-
-      .about-image {
-        flex: 1;
-        display: flex;
-        justify-content: center;
-      }
-
-      .about-image img {
-        width: 260px;
-        height: 320px;
-        object-fit: cover;
-        border-radius: 20px;
-        filter: grayscale(10%);
-      }
-
-      /* TIMELINE */
-      .timeline {
-        padding: 100px 40px 40px; 
-        max-width: 800px;
-        margin: auto;
-      }
-
-      .timeline h2 {
-        margin-bottom: 40px;
-      }
-
-      .timeline-line {
-        position: relative;
-        border-left: 2px solid #A020F0;
-        padding-left: 30px;
-      }
-
-      .timeline-item {
-        position: relative;
-        margin-bottom: 30px;
-      }
-
-      .dot {
-        width: 10px;
-        height: 10px;
-        background: #A020F0;
-        border-radius: 50%;
-        position: absolute;
-        left: -36px;
-        top: 6px;
-      }
-
-      .content span {
-        font-weight: bold;
-        color: #A020F0;
-      }
-
-      .content p {
-        margin: 5px 0 0;
-        color: #333;
-      }
-
-.contact {
-  padding: 40px 40px 20px;
-  text-align: center;
-  background: transparent;
+  /* botão currículo no topo */
+.hero-top {
+  position: absolute;
+  top: 40px;
+  right: -135px;
 }
 
-.contact h2 {
-  margin-bottom: 30px;
-}
-
-.contact-links {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  flex-wrap: wrap;
-}
-
-.contact-links a {
+.btn-cv-top {
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 600;
+  font-size: 0.9rem;
   color: #111;
-  border-bottom: 1px solid transparent;
+  border-bottom: 2px solid #A020F0;
+  padding-bottom: 2px;
   transition: 0.3s;
 }
 
-.contact-links a:hover {
+.btn-cv-top:hover {
   color: #A020F0;
   border-color: #A020F0;
 }
 
-footer {
-  text-align: center;
-  padding: 40px 20px 60px;
-  font-size: 0.8rem;
-  color: #777;
-}
+  /* PROJECTS */
+  .projects {
+    margin-top: 60px;
+    padding: 0 40px 80px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+  }
 
-footer a {
-  color: #A020F0;
-  text-decoration: none;
-  border-bottom: 1px solid transparent;
-  transition: 0.3s;
-}
+  .card {
+    background: #fff;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border: 1px solid rgba(0,0,0,0.03);
+    transition: all 0.3s ease;
+  }
 
-footer a:hover {
-  border-color: #A020F0;
-}
+  @media (min-width: 768px) {
+    .card:nth-child(1) { transform: rotate(-2deg); }
+    .card:nth-child(2) { transform: rotate(2deg); }
+    .card:nth-child(3) { transform: rotate(-1deg); }
+  }
 
-      /* RESPONSIVO */
-      @media (max-width: 768px) {
-        .about-wrapper {
-          flex-direction: column;
-          align-items: flex-start;
-        }
+  .card:hover {
+    transform: scale(1.03);
+  }
 
-        .about-image img {
-          width: 100%;
-          height: auto;
-        }
-      }
+  .tag {
+    font-size: 0.7rem;
+    background: #111;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    display: inline-block;
+  }
 
-      @media (max-width: 600px) {
-        .hero {
-          padding: 60px 20px 20px;
-        }
+  .card p {
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
 
-        .projects {
-          padding: 0 20px 60px;
-        }
+  /* ABOUT */
+  .about {
+    padding: 100px 40px;
+    background: #010101;
+    color: white;
+  }
 
-        .about {
-          padding: 60px 20px;
-        }
+  .about-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 60px;
+    max-width: 1100px;
+    margin: auto;
+  }
 
-        .timeline {
-          padding: 60px 20px;
-        }
-      }
-    </style>
+  .about-text {
+    flex: 1;
+  }
+
+  .about-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+
+  .about-text p {
+    line-height: 1.7;
+    color: #ccc;
+  }
+
+  .about-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+
+  .about-image img {
+    width: 260px;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 20px;
+    filter: grayscale(10%);
+  }
+
+  /* TIMELINE */
+  .timeline {
+    padding: 100px 40px 40px; 
+    max-width: 800px;
+    margin: auto;
+  }
+
+  .timeline h2 {
+    margin-bottom: 40px;
+  }
+
+  .timeline-line {
+    position: relative;
+    border-left: 2px solid #A020F0;
+    padding-left: 30px;
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: 30px;
+  }
+
+  .dot {
+    width: 10px;
+    height: 10px;
+    background: #A020F0;
+    border-radius: 50%;
+    position: absolute;
+    left: -36px;
+    top: 6px;
+  }
+
+  .content span {
+    font-weight: bold;
+    color: #A020F0;
+  }
+
+  .content p {
+    margin: 5px 0 0;
+    color: #333;
+  }
+
+  /* CONTACT */
+  .contact {
+    padding: 40px 40px 20px;
+    text-align: center;
+    background: transparent;
+  }
+
+  .contact h2 {
+    margin-bottom: 30px;
+  }
+
+  .contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+
+  .contact-links a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #111;
+    border-bottom: 1px solid transparent;
+    transition: 0.3s;
+  }
+
+  .contact-links a:hover {
+    color: #A020F0;
+    border-color: #A020F0;
+  }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 40px 20px 60px;
+    font-size: 0.8rem;
+    color: #777;
+  }
+
+  footer a {
+    color: #A020F0;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: 0.3s;
+  }
+
+  footer a:hover {
+    border-color: #A020F0;
+  }
+
+  /* RESPONSIVO */
+  @media (max-width: 768px) {
+    .about-wrapper {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .hero {
+      padding: 80px 20px 20px;
+    }
+
+    .projects {
+      padding: 0 20px 60px;
+    }
+
+    .about {
+      padding: 60px 20px;
+    }
+
+    .timeline {
+      padding: 60px 20px;
+    }
+  }
+</style>
   </head>
   <link rel="icon" type="image/png" href="/favicon.png" />
   <body>
 
     <!-- HERO -->
     <section class="hero">
+
+    <div class="hero-top">
+      <a href="/curriculo.pdf" target="_blank" class="btn-cv-top">
+        Ver currículo
+      </a>
+    </div>
+
       <div class="title">
         Maria <br />
         <span class="accent">Rodrigues</span>
@@ -261,6 +293,7 @@ footer a:hover {
       <p class="subtitle">
         Dados aplicados a negócio, com foco em performance e tomada de decisão.
       </p>
+
     </section>
 
     <!-- PROJECTS -->
