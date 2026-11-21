@@ -91,6 +91,39 @@ const stack = [
   { grupo: 'Análise', itens: ['KPIs', 'Carteira & safra', 'Projeções', 'Análise exploratória', 'Data viz'] },
   { grupo: 'Código & IA', itens: ['Python', 'pandas', 'Jupyter', 'IA generativa', 'AWS', 'TypeScript', 'React', 'Git'] },
 ];
+const premios = [
+  {
+    titulo: '8º lugar no CONIC-SEMESP 2026',
+    org: 'Semesp · nov/2026',
+    desc: '26º Congresso Nacional de Iniciação Científica: 8ª posição na área de Tecnologia da Informação, categoria Em Andamento, com o TCC Ampara.',
+    link: '/certificado-conic-2026.jpg',
+    linkLabel: 'Ver certificado',
+  },
+  {
+    titulo: 'Destaque no Jornal da Band',
+    org: 'Band · nov/2026',
+    desc: 'Reportagem sobre o Ampara e a proposta de reconhecer situações de risco sem depender de um botão de pânico.',
+  },
+  {
+    titulo: 'Feira Eureka 2026',
+    org: 'Instituto Mauá de Tecnologia · out/2026',
+    desc: 'Apresentação do Ampara ao público durante os dois dias de feira.',
+  },
+  {
+    titulo: 'Mauá Metrô Day',
+    org: 'NIT e Instituto Mauá de Tecnologia · 2024',
+    desc: 'Apresentação do Passe Fácil, projeto de atendimento remoto para o Metrô de São Paulo.',
+  },
+];
+
+const certificacoes = [
+  { nome: 'Generative AI Foundations', org: 'AWS Academy', ano: '2026', link: 'https://www.credly.com/badges/862aa1ef-0567-492e-ae69-85d9489c99f0/public_url' },
+  { nome: 'Cloud Web Application Builder', org: 'AWS Academy', ano: '2026', link: 'https://www.credly.com/badges/c254bcfd-0b88-42c6-a096-2f40aa8fa710/public_url' },
+  { nome: 'Microservices and CI/CD Pipeline Builder', org: 'AWS Academy', ano: '2026', link: 'https://www.credly.com/badges/767a11e2-c549-4fd9-9326-e9352da16984/public_url' },
+  { nome: 'SQL Completo com Google BigQuery', org: 'Udemy', ano: '2025', link: 'https://www.udemy.com/certificate/UC-c79c66e4-8475-488f-a266-44e071ce1813/' },
+  { nome: 'Introdução à Ciência de Dados', org: 'Santander Open Academy', ano: '2025' },
+  { nome: 'Java Programming Learner', org: 'Oracle', ano: '' },
+];
 ---
 
 <!doctype html>
@@ -116,6 +149,7 @@ const stack = [
       <nav>
         <a href="#experiencia">Experiência</a>
         <a href="#projetos">Projetos</a>
+        <a href="#reconhecimentos">Prêmios</a>
         <a href="#sobre">Sobre</a>
         <a href="#contato">Contato</a>
       </nav>
@@ -206,10 +240,41 @@ const stack = [
         </div>
       </section>
 
+      <!-- PRÊMIOS E CERTIFICAÇÕES -->
+      <section id="reconhecimentos" class="section wrap">
+        <div class="section-head reveal">
+          <p class="eyebrow"><span class="kw">03</span> / reconhecimentos</p>
+          <h2>Prêmios e certificações</h2>
+        </div>
+        <div class="recog">
+          <div class="awards">
+            {premios.map((a) => (
+              <article class="award reveal">
+                <p class="award-org">{a.org}</p>
+                <h3>{a.titulo}</h3>
+                <p class="award-desc">{a.desc}</p>
+                {a.link && <a class="card-link" href={a.link} target="_blank" rel="noopener">{a.linkLabel} ↗</a>}
+              </article>
+            ))}
+          </div>
+          <ul class="certs reveal">
+            {certificacoes.map((c) => (
+              <li>
+                <div>
+                  <p class="cert-name">{c.nome}</p>
+                  <p class="cert-org">{c.org}{c.ano && ` · ${c.ano}`}</p>
+                </div>
+                {c.link ? <a href={c.link} target="_blank" rel="noopener">credencial ↗</a> : <span></span>}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
       <!-- STACK -->
       <section class="section wrap">
         <div class="section-head reveal">
-          <p class="eyebrow"><span class="kw">03</span> / ferramentas</p>
+          <p class="eyebrow"><span class="kw">04</span> / ferramentas</p>
           <h2>Stack</h2>
         </div>
         <div class="stack">
@@ -227,7 +292,7 @@ const stack = [
       <!-- SOBRE -->
       <section id="sobre" class="about">
         <div class="wrap about-inner">
-          <p class="eyebrow light reveal"><span class="kw">04</span> / sobre</p>
+          <p class="eyebrow light reveal"><span class="kw">05</span> / sobre</p>
           <p class="about-quote reveal">
             Gosto de entender o que está <em>por trás dos números</em> e transformar isso em algo que alguém consegue usar para decidir.
           </p>
@@ -247,7 +312,7 @@ const stack = [
 
       <!-- CONTATO -->
       <section id="contato" class="contact wrap">
-        <p class="eyebrow reveal"><span class="kw">05</span> / contato</p>
+        <p class="eyebrow reveal"><span class="kw">06</span> / contato</p>
         <h2 class="reveal">Vamos <em>conversar?</em></h2>
         <a class="mail reveal" href="mailto:marodriguess412@gmail.com">marodriguess412@gmail.com</a>
         <div class="contact-links reveal">
@@ -439,6 +504,22 @@ const stack = [
   .featured .pill { background: rgba(255, 255, 255, .08); border-color: rgba(255, 255, 255, .2); color: #fff; }
   .card-link { font-family: var(--mono); font-size: 13px; color: var(--rose-dark); }
 
+  /* RECOGNITION */
+  .recog { display: grid; grid-template-columns: 1.2fr .8fr; gap: 40px; align-items: start; }
+  .awards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .award { background: #fff; border: 1px solid var(--line); border-radius: 22px; padding: 24px; display: flex; flex-direction: column; gap: 6px; }
+  .award:first-child { grid-column: span 2; background: var(--pink); border-color: transparent; }
+  .award:first-child h3 { font-size: clamp(2rem, 3.6vw, 2.8rem); color: var(--rose-dark); }
+  .award:last-child:nth-child(even) { grid-column: span 2; }
+  .award-org { font-family: var(--mono); font-size: 12px; color: var(--muted); margin: 0; }
+  .award h3 { font-family: var(--serif); font-weight: 400; font-size: 1.7rem; line-height: 1.05; margin: 0; }
+  .award-desc { margin: 0; color: var(--muted); font-size: .95rem; }
+  .certs { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+  .certs li { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--line); }
+  .cert-name { margin: 0; font-weight: 500; }
+  .cert-org { margin: 2px 0 0; font-family: var(--mono); font-size: 12px; color: var(--muted); }
+  .certs a { font-family: var(--mono); font-size: 12px; color: var(--rose-dark); white-space: nowrap; }
+
   /* STACK */
   .stack { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
   .stack h4 { font-family: var(--mono); font-weight: 500; font-size: 13px; color: var(--rose-dark); margin: 0 0 14px; text-transform: uppercase; letter-spacing: .08em; }
@@ -491,12 +572,15 @@ const stack = [
     .card.featured { grid-column: span 2; grid-template-columns: 1fr; }
     .featured h3, .featured .card-desc, .featured .pills, .featured .card-link, .featured .card-tag { grid-column: 1; grid-row: auto; }
     .stack { grid-template-columns: 1fr; gap: 24px; }
+    .recog { grid-template-columns: 1fr; }
     .about-cols { grid-template-columns: 1fr; gap: 20px; }
   }
   @media (max-width: 640px) {
     .nav nav { display: none; }
     .exp { grid-template-columns: 1fr; gap: 6px; }
     .grid { grid-template-columns: 1fr; }
+    .awards { grid-template-columns: 1fr; }
+    .award:first-child, .award:last-child:nth-child(even) { grid-column: span 1; }
     .card.featured { grid-column: span 1; padding: 28px; }
     .section { padding-top: 80px; }
     .section-head { flex-direction: column; gap: 8px; }
